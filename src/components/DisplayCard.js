@@ -1,22 +1,29 @@
 import React from 'react';
 
 const DisplayCards = (props) => {
+  const handleNextButton = () => {
+    props.submitNavWord(props.indexNo + 1);
+  };
+
+  const handlePrevButton = () => {
+    props.submitNavWord(props.indexNo - 1);
+  };
+
   return (
     <div className='displayCard'>
       {/* <h2> Word Card</h2> */}
-
-      <h2 className='displayedWord'> Apple</h2>
-      <p className='partOfSpeech'>Noun</p>
-      <div className='descriptionOfWord'>
-        <ol>
-          <li>
-            the round fruit of a tree of the rose family, which typically has
-            thin red or green skin and crisp flesh. Many varieties have been
-            developed as dessert or cooking fruit or for making cider.
-          </li>
-
-          <li>the tree which bears apples.</li>
-        </ol>
+      <div className='displayContext'>
+        <h2 className='displayedWord'> {props.wordObj.word}</h2>
+        <p className='partOfSpeech'>{props.wordObj.part}</p>
+        <div className='descriptionOfWord'>
+          <ol>
+            <li>{props.wordObj.description}</li>
+          </ol>
+        </div>
+      </div>
+      <div className='navButton'>
+        <button onClick={handlePrevButton}> Prev </button>
+        <button onClick={handleNextButton}> Next </button>
       </div>
     </div>
   );
