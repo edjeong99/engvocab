@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SideMenu from './SideMenu';
 import DisplayCard from './DisplayCard';
+import wordList from '../data/wordList';
 
 class DisplayCardView extends Component {
   constructor(props) {
@@ -9,20 +10,7 @@ class DisplayCardView extends Component {
     this.state = {
       indexNo: 0,
     };
-    this.wordObjList = [
-      { word: 'Home', part: 'noun', description: 'place to live' },
-      {
-        word: 'Apple',
-        part: 'noun',
-        description:
-          ' the round fruit of a tree of the rose family, which typically has thin red or green skin and crisp flesh.',
-      },
-      {
-        word: 'Happy',
-        part: 'adjective',
-        description: 'feeling or showing pleasure or contentment.',
-      },
-    ];
+    this.wordObjList = wordList;
   }
   // componentDidMount() {
   //   this.setState({
@@ -49,6 +37,7 @@ class DisplayCardView extends Component {
       <div className='displayCardView'>
         <SideMenu wordObjList={this.wordObjList} indexNo={this.state.indexNo} />
         <DisplayCard
+          {...this.props}
           submitNavWord={this.submitNavWord}
           wordObj={this.wordObjList[this.state.indexNo]}
           indexNo={this.state.indexNo}

@@ -9,6 +9,10 @@ const DisplayCards = (props) => {
     props.submitNavWord(props.indexNo - 1);
   };
 
+  const handleQuiz = () => {
+    props.history.push('/quiz');
+  };
+
   return (
     <div className='displayCard'>
       {/* <h2> Word Card</h2> */}
@@ -23,6 +27,7 @@ const DisplayCards = (props) => {
       </div>
       <div className='navButton'>
         <button onClick={handlePrevButton}> Prev </button>
+        <button onClick={handleQuiz}> Quiz </button>
         <button onClick={handleNextButton}> Next </button>
       </div>
     </div>
