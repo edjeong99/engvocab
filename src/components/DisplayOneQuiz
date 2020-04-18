@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import wordList from '../data/wordList';
-import DisplayOneQuiz from './DisplayOneQuiz';
 import { Input } from 'semantic-ui-react';
 
-class DisplayQuiz extends Component {
+class DisplayOneQuiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,9 +31,22 @@ class DisplayQuiz extends Component {
     return (
       <div className='displayOneQuiz'>
         <p>{this.wordObjList[0].description} </p>
-        <DisplayOneQuiz wordObj={this.wordObjList[0]} />
+        <div>
+          <Input
+            size='large'
+            icon='search'
+            iconPosition='left'
+            onChange={this.handleInputChange}
+            onSubmit={this.props.onSubmit}
+            value={this.props.query}
+            name='word'
+            placeholder='Type Spelling'
+          />
+        </div>
+        <p>{this.state.word}</p>
+        <p>{this.state.correct && 'Correct'}</p>
       </div>
     );
   }
 }
-export default DisplayQuiz;
+export default DisplayOneQuiz;
