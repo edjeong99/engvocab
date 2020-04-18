@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import wordList from '../data/wordList';
-import DisplayOneQuiz from './DisplayOneQuiz';
-import { Input } from 'semantic-ui-react';
+import DisplayAQuiz from './DisplayAQuiz';
 
-class DisplayQuiz extends Component {
+class DisplayQuizs extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +16,7 @@ class DisplayQuiz extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    if (e.target.value == this.wordObjList[0].word) {
+    if (e.target.value === this.wordObjList[0].word) {
       this.setState({
         correct: true,
       });
@@ -32,9 +31,9 @@ class DisplayQuiz extends Component {
     return (
       <div className='displayOneQuiz'>
         <p>{this.wordObjList[0].description} </p>
-        <DisplayOneQuiz wordObj={this.wordObjList[0]} />
+        <DisplayAQuiz wordObj={this.wordObjList[0]} />
       </div>
     );
   }
 }
-export default DisplayQuiz;
+export default DisplayQuizs;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import wordList from '../data/wordList';
 import { Input } from 'semantic-ui-react';
 
-class DisplayOneQuiz extends Component {
+class DisplayAQuiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,4 +49,4 @@ class DisplayOneQuiz extends Component {
     );
   }
 }
-export default DisplayOneQuiz;
+export default DisplayAQuiz;

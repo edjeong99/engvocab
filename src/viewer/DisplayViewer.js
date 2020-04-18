@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayCardView from '../components/DisplayCardView';
-import DisplayQuiz from '../components/DisplayQuiz';
+import DisplayQuizs from '../components/DisplayQuizs';
 import { Route, withRouter, NavLink } from 'react-router-dom';
 
 class DisplayViewer extends Component {
@@ -13,7 +13,7 @@ class DisplayViewer extends Component {
           render={(props) => <DisplayCardView {...props} />}
         />
 
-        <Route path='/quiz' render={(props) => <DisplayQuiz {...props} />} />
+        <Route path='/quiz' render={(props) => <DisplayQuizs {...props} />} />
       </div>
     );
   }
