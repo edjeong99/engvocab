@@ -246,7 +246,26 @@ margin : 30px 10px ;
   justify-content:space-around;
 }
 
+.quizTitle{
+text-align: center;
+margin : 30px 0 ;
+}
 .displayOneQuiz{
   display : flex;
-  justify-content:space-evenly;
+ justify-content: space-evenly;
+ margin : 15px 0;
+ font-size: 1.3rem;
+}
+
+.displayDescription{
+  width : 40%;
+}
+
+displayAnswer{
+  width : 30%;
+}
+
+.displayCorrect{
+  width : 10%;
+ 
 }

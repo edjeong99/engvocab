@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import wordList from '../data/wordList';
-import DisplayAQuiz from './DisplayAQuiz';
+import DisplayQuiz from './DisplayQuiz';
 
 class DisplayQuizs extends Component {
   constructor(props) {
@@ -11,6 +11,9 @@ class DisplayQuizs extends Component {
       indexNo: 0,
     };
     this.wordObjList = wordList;
+    this.listWords = this.wordObjList.map((wordObj) => (
+      <DisplayQuiz wordObj={wordObj} />
+    ));
   }
   handleInputChange = (e) => {
     this.setState({
@@ -29,9 +32,9 @@ class DisplayQuizs extends Component {
 
   render() {
     return (
-      <div className='displayOneQuiz'>
-        <p>{this.wordObjList[0].description} </p>
-        <DisplayAQuiz wordObj={this.wordObjList[0]} />
+      <div>
+        <h2 className='quizTitle'>Quiz</h2>
+        <div className='displayQuizs'>{this.listWords}</div>
       </div>
     );
   }

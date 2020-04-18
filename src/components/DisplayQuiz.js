@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import wordList from '../data/wordList';
 import { Input } from 'semantic-ui-react';
 
-class DisplayAQuiz extends Component {
+class DisplayQuiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      word: '',
       correct: false,
       indexNo: 0,
     };
-    this.wordObjList = wordList;
   }
   handleInputChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-    if (e.target.value == this.wordObjList[0].word) {
+    if (
+      e.target.value.toLowerCase() === this.props.wordObj.word.toLowerCase()
+    ) {
       this.setState({
         correct: true,
       });
@@ -30,8 +27,8 @@ class DisplayAQuiz extends Component {
   render() {
     return (
       <div className='displayOneQuiz'>
-        <p>{this.wordObjList[0].description} </p>
-        <div>
+        <p className='displayDescription'>{this.props.wordObj.description} </p>
+        <div className='displayAnswer'>
           <Input
             size='large'
             icon='search'
@@ -43,10 +40,10 @@ class DisplayAQuiz extends Component {
             placeholder='Type Spelling'
           />
         </div>
-        <p>{this.state.word}</p>
-        <p>{this.state.correct && 'Correct'}</p>
+
+        <p className='displayCorrect'>{this.state.correct && 'Correct'}</p>
       </div>
     );
   }
 }
-export default DisplayAQuiz;
+export default DisplayQuiz;
